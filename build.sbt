@@ -35,6 +35,22 @@ lazy val hellostreamImpl = project("hellostream-impl")
     libraryDependencies += lagomJavadslTestKit
   )
 
+lazy val byeApi = project("bye-api")
+  .settings(version := "1.0-SNAPSHOT")
+  .settings(
+    libraryDependencies += lagomJavadslApi
+  )
+
+lazy val byeImpl = project("bye-impl")
+  .settings(version := "1.0-SNAPSHOT")
+  .enablePlugins(LagomJava)
+  .dependsOn(byeApi, helloworldApi)
+  .settings(
+    libraryDependencies ++= Seq(
+      lagomJavadslTestKit
+    )
+  )
+
 def project(id: String) = Project(id, base = file(id))
   .settings(eclipseSettings: _*)
   .settings(javacOptions in compile ++= Seq("-encoding", "UTF-8", "-source", "1.8", "-target", "1.8", "-Xlint:unchecked", "-Xlint:deprecation"))
