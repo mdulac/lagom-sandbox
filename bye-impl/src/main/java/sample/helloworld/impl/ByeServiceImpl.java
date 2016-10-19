@@ -9,7 +9,6 @@ import sample.helloworld.api.ByeService;
 import sample.helloworld.api.HelloService;
 
 import javax.inject.Inject;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 /**
@@ -28,7 +27,7 @@ public class ByeServiceImpl implements ByeService {
     public ServiceCall<NotUsed, String> bye(String id) {
         return request -> {
             /*CompletionStage<String> helloCompletionStage = helloService.hello(id).invoke();*/
-            /*return helloCompletionStage.thenCombine(CompletableFuture.completedFuture("Bye, " + id), (t, u) -> t + "\n" + u);*/
+            /*return helloCompletionStage.thenApply(hello -> hello + "\n" + ("Bye, " + id));*/
         };
     }
 
