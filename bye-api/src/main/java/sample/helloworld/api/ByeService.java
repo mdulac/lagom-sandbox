@@ -26,8 +26,6 @@ public interface ByeService extends Service {
 
     @Override
     default Descriptor descriptor() {
-        return named("byeservice").withCalls(
-                pathCall("/api/bye/:id", this::bye)
-        ).withAutoAcl(true);
+        return null;
     }
 }
