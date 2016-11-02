@@ -26,8 +26,8 @@ public class ByeServiceImpl implements ByeService {
     @Override
     public ServiceCall<NotUsed, String> bye(String id) {
         return request -> {
-            /*CompletionStage<String> helloCompletionStage = helloService.hello(id).invoke();*/
-            /*return helloCompletionStage.thenApply(hello -> hello + "\n" + ("Bye, " + id));*/
+            CompletionStage<String> helloCompletionStage = helloService.hello(id).invoke();
+            return helloCompletionStage.thenApply(hello -> hello + "\n" + ("Bye, " + id));
         };
     }
 

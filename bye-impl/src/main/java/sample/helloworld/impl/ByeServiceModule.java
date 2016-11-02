@@ -14,7 +14,7 @@ import sample.helloworld.api.HelloService;
 public class ByeServiceModule extends AbstractModule implements ServiceGuiceSupport {
     @Override
     protected void configure() {
-        /*bindServices(serviceBinding(ByeService.class, ByeServiceImpl.class));*/
-        /*bindClient(HelloService.class);*/
+        bindServices(serviceBinding(ByeService.class, ByeServiceImpl.class));
+        bindClient(HelloService.class);
     }
 }

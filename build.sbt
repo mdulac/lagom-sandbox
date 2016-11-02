@@ -35,13 +35,13 @@ lazy val hellostreamImpl = project("hellostream-impl")
     libraryDependencies += lagomJavadslTestKit
   )
 
-/*lazy val byeApi = project("bye-api")
+lazy val byeApi = project("bye-api")
   .settings(version := "1.0-SNAPSHOT")
   .settings(
     libraryDependencies += lagomJavadslApi
-  )*/
+  )
 
-/*lazy val byeImpl = project("bye-impl")
+lazy val byeImpl = project("bye-impl")
   .settings(version := "1.0-SNAPSHOT")
   .enablePlugins(LagomJava)
   .dependsOn(byeApi, helloworldApi)
@@ -49,7 +49,7 @@ lazy val hellostreamImpl = project("hellostream-impl")
     libraryDependencies ++= Seq(
       lagomJavadslTestKit
     )
-  )*/
+  )
 
 def project(id: String) = Project(id, base = file(id))
   .settings(eclipseSettings: _*)
