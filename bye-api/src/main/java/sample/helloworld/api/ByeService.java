@@ -7,6 +7,7 @@ import akka.NotUsed;
 import com.lightbend.lagom.javadsl.api.Descriptor;
 import com.lightbend.lagom.javadsl.api.Service;
 import com.lightbend.lagom.javadsl.api.ServiceCall;
+import com.lightbend.lagom.javadsl.api.transport.Method;
 
 import static com.lightbend.lagom.javadsl.api.Service.named;
 import static com.lightbend.lagom.javadsl.api.Service.restCall;
@@ -27,8 +28,8 @@ public interface ByeService extends Service {
 
     @Override
     default Descriptor descriptor() {
-        return named("byeservice").withCalls(
-                restCall(GET, "/api/bye/:id", this::bye)
+        return Service.named("byeservice").withCalls(
+                Service.restCall(Method.GET, "/api/bye/:id", this::bye)
         ).withAutoAcl(true);
     }
 }
